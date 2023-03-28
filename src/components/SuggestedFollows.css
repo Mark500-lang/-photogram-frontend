@@ -1,0 +1,18 @@
+.suggested-follows .profile-picture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .suggested-follows li {
+    margin-bottom: 10px;
+  }
+
+  .suggested-follows p {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+
+  .suggested-follows button {
+    font-size: 12px;
+  }

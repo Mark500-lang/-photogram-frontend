@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Post from './Post';
 import mockData from '../mockData.js';
-import SuggestedUser from './SuggestedUser';
 import SuggestedFollows from './SuggestedUser';
 
 // Sample data for suggested users

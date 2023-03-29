@@ -34,7 +34,7 @@ const mockData = [
   {
     id: 2,
     caption: "Exploring the great outdoors",
-    image: "assets/img/img3.jpg",
+    image: "assets/img/img6.jpg",
     user: {
       username: "NatureLover",
       profile_picture: "assets/img/img4.jpg",
@@ -59,7 +59,7 @@ const mockData = [
   {
     id: 3,
     caption: "Delicious homemade pizza",
-    image: "assets/img/img5.jpg",
+    image: "assets/img/img9.jpg",
     user: {
       username: "FoodieFan",
       profile_picture: "assets/img/img6.jpg",

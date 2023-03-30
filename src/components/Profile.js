@@ -13,34 +13,12 @@ function Profile(){
         posts: [
             {
                 id: 1,
-                image: "https://i.pinimg.com/564x/6d/61/19/6d6119a3231db739b01676cc59db8666.jpg",
-                caption: "Catching Flights not feelings",		    
-            },
-            {
-                id: 2,
-                image: "https://i.pinimg.com/564x/6d/61/19/6d6119a3231db739b01676cc59db8666.jpg",
-                caption: "Catching Flights not feelings",
-            },
-            {
-                id: 3,
-                image: "https://i.pinimg.com/564x/6d/61/19/6d6119a3231db739b01676cc59db8666.jpg",
-                caption: "Catching Flights not feelings",
-            },
-            {
-                id: 4,
-                image: "https://i.pinimg.com/564x/6d/61/19/6d6119a3231db739b01676cc59db8666.jpg",
-                caption: "Catching Flights not feelings",
-            },
-            {
-                id: 5,
-                image: "https://i.pinimg.com/564x/6d/61/19/6d6119a3231db739b01676cc59db8666.jpg",
-                caption: "Catching Flights not feelings",
+                image: "https://i.pinimg.com/564x/6d/61/19/6d6119a3231db739b01676cc59db8666.jpg",	    
             }
         ]
     }];
 
     const posts = mockposts.map(post=> (post.posts));
-    console.log(posts)
     return(
         <div>
             <div className="profile" style={{
@@ -105,5 +83,6 @@ function Profile(){
         </div>
     )
 }
+
 
 export default Profile;

@@ -7,21 +7,32 @@ function Signup({setIsLoginPage}){
         setIsLoginPage(true)
     }
     return(
-        <main>
-            <p>Sign up to see photos and videos of your friends</p>
-            <div className="container">
-                <form action="">
-                    <input type="text" placeholder="Mobile Number or Email"/>
-                    <input type="text" placeholder="Full Name"/>
-                    <input type="text" placeholder="Username"/>
-                    <input type="password" placeholder="Password"/>
-                    <button>Sign up</button>
+        <div id="wrapper-signup">
+            <div className="signup-image">
+                <img src="./images/signup.svg" alt="dignup image"/>
+            </div>
+            <div className="signup-container">
+                <p>Sign up to see photos and videos of your friends</p>
+                <form className="main-signup">
+                        <div>
+                            <input type="text" placeholder="Email" className="form-control"/>
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Full Name" className="form-control"/>
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Username" className="form-control"/>
+                        </div>
+                        <div>
+                            <input type="password" placeholder="Password" className="form-control"/>
+                        </div>
+                        <button type="button" className="btn">Signup</button>
                 </form>
+                <div className="sub-signup">
+                        Have an account? <a href="" onClick={handleClick} >Log in</a>
+                </div>
             </div>
-            <div className="option">
-                <p>Have an account? <a href="" onClick={handleClick} >Log in</a></p>
-            </div>
-        </main>
+        </div>
     )
 }
 

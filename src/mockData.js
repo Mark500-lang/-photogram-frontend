@@ -1,4 +1,4 @@
-const mockData = [
+/* const mockData = [
   {
     id: 1,
     caption: "Catching Flights not feelings",
@@ -83,3 +83,4 @@ const mockData = [
 ];
 
 export default mockData;
+ */

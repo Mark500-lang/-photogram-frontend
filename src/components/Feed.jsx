@@ -5,6 +5,22 @@ import SuggestedFollows from './SuggestedUser';
 
 // Sample data for suggested users
 function Feed() {
+  const [posts, setPosts] = useState([]);
+
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  const fetchPosts = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/posts");
+      const data = await response.json();
+      setPosts(data);
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+    }
+  };
 
     const suggestedUsers = [
     {
@@ -29,7 +45,7 @@ function Feed() {
       <div className="container">
         <div className="row">
           <div className="col-md-8">
-            {mockData.map((post) => (
+            {posts.map((post) => (
               <Post key={post.id} post={post} />
             ))}
           </div>

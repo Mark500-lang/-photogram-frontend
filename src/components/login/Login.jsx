@@ -1,6 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Login({setIsLoginPage, isLoginPage}){
+
+    const [user, setUser] = useState();
+
+    const [formData, setFormData]= useState({
+        username: "",
+        password: ""
+    });
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        fetch("/login" , {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        })
+        .then((response)=> response.json())
+        .then(data=> setUser(data))
+    };
+
+    const handleOnChange=(event)=>{
+        formData[event.target.name]=event.target.value
+        setFormData({
+            ...formData,
+            [event.target.name]:event.target.value
+        })
+    }
     const handleClick =(e)=>{
         e.preventDefault()
         setIsLoginPage(!isLoginPage)
@@ -15,12 +43,12 @@ function Login({setIsLoginPage, isLoginPage}){
                 <img src="./images/photogram_logo4.svg"></img>
                 <div className="main-content">
                     
-                    <form className="l-part">
+                    <form className="l-part" onSubmit={handleSubmit}>
                         <div>
-                            <input type="text" placeholder="Username" className="form-control" />
+                            <input name='username' type="text" placeholder="Username" value={formData.username} onChange={handleOnChange} className="form-control" />
                         </div>
                         <div className="overlap-text">
-                            <input type="password" placeholder="Password" className="form-control" />
+                            <input name='password' type="password" placeholder="Password" value={formData.password} onChange={handleOnChange} className="form-control" />
                         </div>
                         <button type="button" className="btn">Login</button>
                 </form>

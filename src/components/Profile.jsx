@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import UserPosts from "./UserPosts";
+
 import { Link } from "react-router-dom";
 
 function Profile(){
+
     const mockposts=[
     {
         id: 1,
@@ -63,7 +66,7 @@ function Profile(){
                     </Link> 
                 </div>
             </div>
-            <div className="add button">
+            <div className="add_button">
                 <Link className="nav-link" to='/profile/create-post'>
                     <span className="material-symbols-outlined">add_circle</span>
                 </Link>
@@ -86,3 +89,18 @@ function Profile(){
 
 
 export default Profile;
+/*
+const [profile, setProfile] = useState();
+useEffect(()=>{
+        fetch("/user",{
+            method: "GET",
+            headers: {
+                Accept: "application/json"
+            }
+        })
+        .then(r=>r.json())
+        .then((response)=>{
+            setProfile(response)
+        })
+    });
+*/

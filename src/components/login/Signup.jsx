@@ -13,7 +13,7 @@ function Signup({setIsLoginPage}){
             </div>
             <div className="signup-container">
                 <p>Sign up to see photos and videos of your friends</p>
-                <form className="main-signup">
+                <form className="main-signup" >
                         <div>
                             <input type="text" placeholder="Email" className="form-control"/>
                         </div>
@@ -26,7 +26,7 @@ function Signup({setIsLoginPage}){
                         <div>
                             <input type="password" placeholder="Password" className="form-control"/>
                         </div>
-                        <button type="button" className="btn">Signup</button>
+                        <button type="submit" className="btn" >Signup</button>
                 </form>
                 <div className="sub-signup">
                         Have an account? <a href="" onClick={handleClick} >Log in</a>
@@ -37,3 +37,36 @@ function Signup({setIsLoginPage}){
 }
 
 export default Signup;
+/*
+onSubmit={handleSubmit}
+const initialState = {
+  email: "",
+  name: "",
+  username: "",
+  password: "",
+};
+const [formData, setFormData] = useState(initialState);
+
+  function handleChange(e) {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value,
+    });
+  }
+
+function handleSubmit(e) {
+    e.preventDefault();
+    fetch("/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((r) => r.json())
+      .then((newUser) => {
+        setFormData(initialState);
+        onAddSpice(newUser);
+      });
+  }
+*/

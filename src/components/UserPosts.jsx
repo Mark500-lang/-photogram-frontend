@@ -1,12 +1,19 @@
 import { Modal, Button } from "react-bootstrap";
 import React, { useState, useEffect, useContext } from "react";
-import UserPost from "./UserPosts";
 import { CurrentUserContext } from "./CurrentUserContext";
 import styles from "./UserPosts";
+import CommentForm from "./CommentForm";
 
 function UserPosts({ post }) {
   const currentUser = useContext(CurrentUserContext);
   const [userPosts, setUserPosts] = useState([]);
+  const [selectedPost, setSelectedPost] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [likes, setLikes] = useState(0);
+  const [comments, setComments] = useState([]);
+  const [commentInput, setCommentInput] = useState("");
+  const [liked, setLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(post.likes?.count ?? 0);
 
   useEffect(() => {
     fetchPosts();
@@ -22,12 +29,33 @@ function UserPosts({ post }) {
     }
   };
 
-  const [selectedPost, setSelectedPost] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+  const handleLike = () => {
+    setLiked(!liked);
+    if (liked) {
+      setLikeCount(likeCount - 1);
+    } else {
+      setLikeCount(likeCount + 1);
+    }
+  };
+
+  const handleCommentSubmit = (e) => {
+    e.preventDefault();
+    const newComment = {
+      id: comments.length + 1,
+      user: {
+        username: "currentUser", // Replace this with the current user's username
+      },
+      comment: commentInput,
+    };
+    setComments([...comments, newComment]);
+    setCommentInput("");
+  };
 
   const handleImageClick = (post) => {
     setSelectedPost(post);
     setShowModal(true);
+    setLikes(post.likes.count);
+    setComments(post.comments);
   };
 
   const handleCloseModal = () => {
@@ -64,6 +92,16 @@ function UserPosts({ post }) {
                 alt={post.caption}
                 style={{ width: "200px", height: "200px", objectFit: "cover" }}
               />
+              <button
+                type="button"
+                className={`btn btn-light btn-sm mb-2 ${
+                  liked ? "text-danger" : ""
+                }`}
+                onClick={handleLike}
+              >
+                <i className={`bi bi-heart${liked ? "-fill" : ""}`}></i>
+                <span className="ms-3">{liked ? "Liked" : "Like"}</span>
+              </button>
               <h3>{post.caption}</h3>
               <p>
                 <strong>{post.likes.count} likes</strong>
@@ -74,6 +112,7 @@ function UserPosts({ post }) {
                   <span>{comment.comment}</span>
                 </div>
               ))}
+              <CommentForm onCommentSubmit={handleCommentSubmit} />
             </div>
           </Modal.Body>
           <Modal.Footer>

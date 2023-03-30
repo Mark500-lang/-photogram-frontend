@@ -1,40 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import Post from './Post';
-import SuggestedFollows from './SuggestedUser';
+import SuggestedFollows from './SuggestedFollows';
 
 // Sample data for suggested users
-function Feed() {
-  const [posts, setPosts] = useState([]);
-
-
-  useEffect(() => {
-    fetchPosts();
-  }, []);
-
-  const fetchPosts = async () => {
-    try {
-      const response = await fetch("http://localhost:3000/posts");
-      const data = await response.json();
-      setPosts(data);
-    } catch (error) {
-      console.error("Error fetching posts:", error);
-    }
-  };
+function Feed({posts}) {
 
     const suggestedUsers = [
     {
       id: 1,
-      username: 'antidode',
+      username: 'myantidodesssss',
       profile_picture: 'assets/img/img3.jpg',
     },
     {
       id: 2,
-      username: 'whoputthemuffinsinthefreezer',
+      username: 'dennisthemenace',
       profile_picture: 'assets/img/img4.jpg',
     },
     {
       id: 3,
-      username: 'mynamesjeff',
+      username: 'mynamesjefffffffff',
       profile_picture: 'assets/img/img5.jpg',
     }
   ];

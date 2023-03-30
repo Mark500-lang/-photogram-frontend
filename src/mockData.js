@@ -1,8 +1,8 @@
-/* const mockData = [
+const mockData = [
   {
     id: 1,
     caption: "Catching Flights not feelings",
-    image: "assets/img/img2.jpg",
+    image: "assets/img/img7.jpg",
     user: {
       username: "MegtheeStallion",
       profile_picture: "assets/img/img1.jpg",
@@ -30,11 +30,10 @@
       },
     ],
   },
-  // Add more sample posts as needed
   {
     id: 2,
     caption: "Exploring the great outdoors",
-    image: "assets/img/img6.jpg",
+    image: "assets/img/img1.jpg",
     user: {
       username: "NatureLover",
       profile_picture: "assets/img/img4.jpg",
@@ -80,7 +79,150 @@
       },
     ],
   },
+  {
+    id: 4,
+    caption: "Morning workout at the beach",
+    image: "assets/img/img3.jpg",
+    user: {
+      username: "FitnessGuru",
+      profile_picture: "assets/img/img7.jpg",
+    },
+    likes: {
+      count: 7,
+      recentLiker: {
+        username: "fitfam",
+      },
+    },
+    comments: [
+      {
+        id: 5,
+        comment: "Inspiring! 💪",
+        user: {
+          username: "gymrat",
+        },
+      },
+    ],
+  },
+  {
+    id: 5,
+    caption: "New city, new adventures",
+    image: "assets/img/img5.jpg",
+    user: {
+      username: "UrbanExplorer",
+      profile_picture: "assets/img/img8.jpg",
+    },
+    likes: {
+      count: 10,
+      recentLiker: {
+        username: "cityslicker",
+      },
+    },
+    comments: [
+      {
+        id: 6,
+        comment: "Love exploring new places!",
+        user: {
+          username: "wanderlust",
+        },
+      },
+    ],
+  },
+  {
+    id: 6,
+    caption: "Sunny day at the park",
+    image: "assets/img/img4.jpg",
+    user: {
+      username: "Sunshine",
+      profile_picture: "assets/img/img9.jpg",
+    },
+    likes: {
+      count: 8,
+      recentLiker: {
+        username: "nature",
+      },
+    },
+    comments: [
+      {
+        id: 7,
+        comment: "Perfect day! ☀️",
+        user: {
+          username: "sunnydays",
+        },
+      },
+    ],
+  },
+  {
+    id: 7,
+    caption: "Morning workout at the beach",
+    image: "assets/img/img6.jpg",
+    user: {
+      username: "FitnessGuru",
+      profile_picture: "assets/img/img7.jpg",
+    },
+    likes: {
+      count: 7,
+      recentLiker: {
+        username: "fitfam",
+      },
+    },
+    comments: [
+      {
+        id: 5,
+        comment: "Inspiring! 💪",
+        user: {
+          username: "gymrat",
+        },
+      },
+    ],
+  },
+  {
+    id: 8,
+    caption: "New city, new adventures",
+    image: "assets/img/img8.jpg",
+    user: {
+      username: "UrbanExplorer",
+      profile_picture: "assets/img/img8.jpg",
+    },
+    likes: {
+      count: 10,
+      recentLiker: {
+        username: "cityslicker",
+      },
+    },
+    comments: [
+      {
+        id: 6,
+        comment: "Love exploring new places!",
+        user: {
+          username: "wanderlust",
+        },
+      },
+    ],
+  },
+  {
+    id: 9,
+    caption: "Sunny day at the park",
+    image: "assets/img/img2.jpg",
+    user: {
+      username: "Sunshine",
+      profile_picture: "assets/img/img1.jpg",
+    },
+    likes: {
+      count: 8,
+      recentLiker: {
+        username: "nature",
+      },
+    },
+    comments: [
+      {
+        id: 7,
+        comment: "Perfect day! ☀️",
+        user: {
+          username: "sunnydays",
+        },
+      },
+    ],
+  },
 ];
 
 export default mockData;
- */

@@ -12,7 +12,7 @@ function Header(){
             <ul className="navbar__list">
                 <li>
                     <NavLink className="nav-link" to='/search'>
-                        <span className="material-symbols-outlined">search</span> 
+                        <span className="material-symbols-outlined">search</span>
                     </NavLink>
                 </li>
                 <li>

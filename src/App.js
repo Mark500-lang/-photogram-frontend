@@ -32,7 +32,7 @@ function App() {
       <Routes >
             <Route index path='/' element={<LoginSignup/>}/>
             <Route path="/home" element={<Header/>}>
-            <Route index element={<Feed/>}/>
+            <Route index element={<Feed posts={posts}/>}/>
             <Route path='/home/search' element={<Search/>}/>
             <Route path='/home/profile' element={<Profile/>}/>
             <Route path="/home/profile/create-post" element={<CreatePost/>} />

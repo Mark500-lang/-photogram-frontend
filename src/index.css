@@ -133,7 +133,7 @@
    
    .profile{
      display: flex;
-   
+    background-color: rgba(0, 0, 0, 0.856);
      color: #fff;
    }
    .profile-image {

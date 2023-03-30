@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import EditProfile from "./EditProfile";
 
-function Profile() {
+function Profile({userData}) {
   const mockposts = [
     {
       id: 1,
@@ -75,7 +75,7 @@ function Profile() {
         )}
       </div>
       <div className="add_button">
-        <Link style={{color: "white", padding: "10px"}} className="nav-link" to="/profile/create-post">
+        <Link style={{color: "white", padding: "10px"}} className="nav-link" to="/home/profile/create-post">
           <span className="material-symbols-outlined">add_circle</span>
         </Link>
       </div>

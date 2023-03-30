@@ -10,9 +10,6 @@ function Signup({setIsLoginPage}){
     }
     return(
         <div id="wrapper-signup">
-            <div className="signup-image">
-                <img src="./images/signup.svg" alt="dignup image"/>
-            </div>
             <div className="signup-container">
                 <p>Sign up to see photos and videos of your friends</p>
                 <form className="main-signup" >
@@ -35,6 +32,9 @@ function Signup({setIsLoginPage}){
                 <div className="sub-signup">
                         Have an account? <a href="" onClick={handleClick} >Log in</a>
                 </div>
+            </div>
+            <div className="signup-image">
+                <img src="./images/signup.svg" alt="dignup image"/>
             </div>
         </div>
     )

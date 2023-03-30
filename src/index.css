@@ -133,8 +133,12 @@
    
    .profile{
      display: flex;
-   
+    background-color: rgba(0, 0, 0, 0.856);
      color: #fff;
+   }
+   .profile{
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: darken;
    }
    .profile-image {
      width: 150px;

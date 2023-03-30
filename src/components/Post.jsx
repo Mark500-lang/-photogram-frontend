@@ -4,9 +4,10 @@ import CommentForm from "./CommentForm";
 import "./Post.css";
 
 function Post({ post }) {
+
   const [comments, setComments] = useState(post.comments);
   const [liked, setLiked] = useState(false);
-  const [likeCount, setLikeCount] = useState(post.likes.count);
+  const [likeCount, setLikeCount] = useState(post.likes?.count ?? 0);
 
   const handleLike = () => {
     setLiked(!liked);
@@ -22,19 +23,19 @@ function Post({ post }) {
       comment: commentText,
       user: {
         username: "currentUser",
-        //Replace "current_user" with the username of the user posting the comment when integrating backend.
+        //Replace "currentUser" with the username of the user posting the comment when integrating backend.
       },
     };
     setComments([...comments, newComment]);
   };
   return (
     <div id="post" className="card mb-4">
-      {post && (
+      {post &&(
         <>
           <div className="card-header d-flex align-items-center">
             <img
               id="profile_post"
-              src={post.user.profile_picture}
+              src={post.user.profile_pic}
               alt="Profile"
             />
             <span className="ms-3">{post.user.username}</span>
@@ -42,7 +43,7 @@ function Post({ post }) {
           <img
             className="card-img-top"
             id="post_pic"
-            src={post.image}
+            src={post.post_pic}
             alt="Post"
           />
           <div className="card-body">
@@ -51,7 +52,7 @@ function Post({ post }) {
             onClick={handleLike}
             >
               <i className={`bi bi-heart${liked ? "-fill" : ""}`}></i>
-              <span>{liked ? "Liked" : "Like"}</span>
+              <span className="ms-3">{liked ? "Liked" : "Like"}</span>
             </button>
             <div className="card-text">
               <strong>{post.user.username}</strong>:{post.caption}

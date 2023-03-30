@@ -2,6 +2,7 @@ import React from "react";
 
 function Signup({setIsLoginPage}){
 
+  //to login page change
     const handleClick =(e)=>{
         e.preventDefault()
         setIsLoginPage(true)

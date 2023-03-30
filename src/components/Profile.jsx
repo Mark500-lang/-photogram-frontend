@@ -30,7 +30,6 @@ function Profile() {
       ],
     },
   ];
-
   const [userProfile, setUserProfile] = useState(mockposts[0]);
   const [editing, setEditing] = useState(false);
 

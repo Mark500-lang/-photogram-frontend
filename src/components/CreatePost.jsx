@@ -9,7 +9,7 @@ function CreatePost(){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch("/login" , {
+        fetch("/posts" , {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

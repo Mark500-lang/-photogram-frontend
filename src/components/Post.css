@@ -1,0 +1,15 @@
+#post {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  #profile_post {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  #post_pic {
+    width: 100%;
+    height: auto;
+  }

@@ -16,6 +16,14 @@ function Profile() {
       posts: [
         {
           id: 1,
+          image: "assets/img/img17.jpg",
+        },
+        {
+          id: 2,
+          image: "assets/img/img19.jpg",
+        },
+        {
+          id: 3,
           image:
             "https://i.pinimg.com/564x/6d/61/19/6d6119a3231db739b01676cc59db8666.jpg",
         },
@@ -68,23 +76,25 @@ function Profile() {
         )}
       </div>
       <div className="add_button">
-        <Link className="nav-link" to="/profile/create-post">
+        <Link style={{color: "white", padding: "10px"}} className="nav-link" to="/profile/create-post">
           <span className="material-symbols-outlined">add_circle</span>
         </Link>
       </div>
       <div className="container">
-        {userProfile.posts.map((post) => {
-          return (
-            <div key={post.id} className="card">
-              <img src={post.image} alt="postedImage" style={{
-              cursor: "pointer",
-              width: "200px",
-              height: "200px",
-              objectFit: "cover",
-            }}></img>
-            </div>
-          );
-        })}
+        {userProfile.posts.map((post) => (
+          <div key={post.id} className="feed">
+            <img
+              src={post.image}
+              alt="postedImage"
+              style={{
+                cursor: "pointer",
+                width: "200px",
+                height: "200px",
+                objectFit: "cover",
+              }}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

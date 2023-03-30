@@ -14,7 +14,7 @@ function App() {
       <Routes >
             <Route path="/" element={<Header/>}>
             <Route path='/search' element={<Search/>}/>
-            <Route index element={<Feed/>}/>
+            <Route index element={<LoginSignup/>}/>
             <Route path='/profile' element={<Profile/>}/>
             <Route path="/profile/create-post" element={<CreatePost/>} />
             <Route path="/profile/edit-profile" element={<EditProfile/>} />
@@ -25,4 +25,4 @@ function App() {
 }
 
 export default App;
-/*LoginSignup*/
+/*Feed*/

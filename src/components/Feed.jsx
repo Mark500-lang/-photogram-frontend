@@ -1,25 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import Post from './Post';
-import mockData from '../mockData.js';
-import SuggestedFollows from './SuggestedUser';
+import SuggestedFollows from './SuggestedFollows';
 
 // Sample data for suggested users
-function Feed() {
+function Feed({posts}) {
 
     const suggestedUsers = [
     {
       id: 1,
-      username: 'antidode',
+      username: 'myantidodesssss',
       profile_picture: 'assets/img/img3.jpg',
     },
     {
       id: 2,
-      username: 'whoputthemuffinsinthefreezer',
+      username: 'dennisthemenace',
       profile_picture: 'assets/img/img4.jpg',
     },
     {
       id: 3,
-      username: 'mynamesjeff',
+      username: 'mynamesjefffffffff',
       profile_picture: 'assets/img/img5.jpg',
     }
   ];
@@ -29,7 +28,7 @@ function Feed() {
       <div className="container">
         <div className="row">
           <div className="col-md-8">
-            {mockData.map((post) => (
+            {posts.map((post) => (
               <Post key={post.id} post={post} />
             ))}
           </div>

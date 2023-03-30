@@ -11,17 +11,17 @@ function Header(){
             </div>
             <ul className="navbar__list">
                 <li>
-                    <NavLink className="nav-link" to='/search'>
+                    <NavLink className="nav-link" to='/home/search'>
                         <span className="material-symbols-outlined">search</span> 
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink className="nav-link" to='/'>
+                    <NavLink className="nav-link" to='/home'>
                         <span className="material-symbols-outlined">home</span>
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink className="nav-link" to='/profile'>
+                    <NavLink className="nav-link" to='/home/profile'>
                         <span className="material-symbols-outlined">radio_button_unchecked</span>
                     </NavLink>
                 </li>

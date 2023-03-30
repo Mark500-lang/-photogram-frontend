@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Signup({setIsLoginPage}){
 
@@ -27,7 +28,9 @@ function Signup({setIsLoginPage}){
                         <div>
                             <input type="password" placeholder="Password" className="form-control"/>
                         </div>
-                        <button type="submit" className="btn" >Signup</button>
+                        <Link to='/home'>
+                            <button type="submit" className="btn" >Signup</button>
+                        </Link>
                 </form>
                 <div className="sub-signup">
                         Have an account? <a href="" onClick={handleClick} >Log in</a>

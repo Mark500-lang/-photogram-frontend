@@ -61,13 +61,13 @@ function Profile(){
                             
                         })
                     }
-                    <Link className="nav-link" to='/profile/edit-profile'>
+                    <Link className="nav-link" to='/home/profile/edit-profile'>
                         <span><button>Edit Profile</button></span> 
                     </Link> 
                 </div>
             </div>
             <div className="add_button">
-                <Link className="nav-link" to='/profile/create-post'>
+                <Link className="nav-link" to='/home/profile/create-post'>
                     <span className="material-symbols-outlined">add_circle</span>
                 </Link>
             </div>

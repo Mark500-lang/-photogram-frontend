@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Login({setIsLoginPage, isLoginPage}){
 
@@ -50,7 +51,9 @@ function Login({setIsLoginPage, isLoginPage}){
                         <div className="overlap-text">
                             <input name='password' type="password" placeholder="Password" value={formData.password} onChange={handleOnChange} className="form-control" />
                         </div>
-                        <button type="button" className="btn">Login</button>
+                        <Link to='/home'>
+                            <button type="button" className="btn">Login</button>
+                        </Link>
                 </form>
             </div>
             <div className="sub-content">

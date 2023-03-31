@@ -12,10 +12,16 @@ import LoginSignup from "./components/login/LoginSignup";
 function App() {
   const [posts, setPosts] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
-  const [followingCount, setFollowingCount] = useState(213); // Replace 213 with the initial number of following users
+  const [followingCount, setFollowingCount] = useState(
+    parseInt(localStorage.getItem("followingCount")) || 213
+  ); // Replace 213 with the initial number of following users
 
   const handleFollow = (isFollowing) => {
-    setFollowingCount((prevCount) => prevCount + (isFollowing ? 1 : -1));
+    setFollowingCount((prevCount) => {
+      const newCount = prevCount + (isFollowing ? 1 : -1);
+      localStorage.setItem("followingCount", newCount);
+      return newCount;
+    });
   };
 
   useEffect(() => {
@@ -37,9 +43,15 @@ function App() {
         <Routes>
           <Route index path="/" element={<LoginSignup />} />
           <Route path="/home" element={<Header />}>
-            <Route index element={<Feed posts={posts} onFollow={handleFollow} />} />
+            <Route
+              index
+              element={<Feed posts={posts} onFollow={handleFollow} />}
+            />
             <Route path="/home/search" element={<Search />} />
-            <Route path="/home/profile" element={<Profile followingCount={followingCount} />} />
+            <Route
+              path="/home/profile"
+              element={<Profile followingCount={followingCount} />}
+            />
             <Route path="/home/profile/create-post" element={<CreatePost />} />
             <Route
               path="/home/profile/edit-profile"

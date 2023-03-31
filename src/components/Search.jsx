@@ -4,12 +4,15 @@ import mockData from "../mockData.js";
 import { FiSearch } from "react-icons/fi";
 import { Modal, Button } from "react-bootstrap";
 import { useState } from "react";
+import CommentForm from "./CommentForm";
 
 function Search() {
   const [selectedPost, setSelectedPost] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
+  const [comments, setComments] = useState([]);
+  const [commentInput, setCommentInput] = useState("");
 
   const handleImageClick = (post) => {
     setSelectedPost(post);
@@ -29,12 +32,27 @@ function Search() {
     setShowModal(false);
   };
 
+  const handleCommentSubmit = (e, commentInput) => {
+    e.preventDefault();
+    if (commentInput.trim()) {
+      setComments([
+        ...comments,
+        {
+          id: Date.now(),
+          user: { username: "current_user" },
+          comment: commentInput,
+        },
+      ]);
+      setCommentInput("");
+    }
+  };
+
   useEffect(() => {
     if (selectedPost) {
       setLikeCount(selectedPost.likes.count);
+      setComments(selectedPost.comments);
     }
   }, [selectedPost]);
-
 
   return (
     <>
@@ -78,26 +96,31 @@ function Search() {
                 alt={selectedPost.caption}
                 style={{ width: "200px", height: "200px", objectFit: "cover" }}
               />
-              <button
-                type="button"
-                className={`btn btn-light btn-sm mb-2 ${
-                  liked ? "text-danger" : ""
-                }`}
-                onClick={handleLike}
-              >
-                <i className={`bi bi-heart${liked ? "-fill" : ""}`}></i>
-                <span className="ms-3">{liked ? "Liked" : "Like"}</span>
-              </button>
-              <h3>{selectedPost.caption}</h3>
-              <p>
-                <strong>{selectedPost.likes.count} likes</strong>
-              </p>
-              {selectedPost.comments.map((comment) => (
+              <div>
+                <button
+                  type="button"
+                  className={`btn btn-light btn-sm mb-2 ${
+                    liked ? "text-danger" : ""
+                  }`}
+                  onClick={handleLike}
+                >
+                  <i className={`bi bi-heart${liked ? "-fill" : ""}`}></i>
+                  <span className="ms-3">{liked ? "Liked" : "Like"}</span>
+                </button>
+                <p>
+                  <strong>{likeCount} likes</strong>
+                </p>
+              </div>
+              <h3>{selectedPost.user.username}</h3>
+              <h4>{selectedPost.caption}</h4>
+
+              {comments.map((comment) => (
                 <div key={comment.id}>
                   <strong>{comment.user.username}: </strong>
                   <span>{comment.comment}</span>
                 </div>
               ))}
+              <CommentForm onCommentSubmit={handleCommentSubmit} />
             </div>
           </Modal.Body>
           <Modal.Footer>

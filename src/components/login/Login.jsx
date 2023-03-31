@@ -43,10 +43,21 @@ const { currentUser, setCurrentUser } = useContext(UserContext);
     });
   };
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    setIsLoginPage(!isLoginPage);
-  };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        fetch("/login" , {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        })
+        .then((response)=> response.json())
+        .then(data=> {
+            setUserData(data),
+            <Profile userData={userData}/>
+        })
+    };
 
   if (userData) {
     return <Profile userData={userData} />;

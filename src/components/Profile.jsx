@@ -16,11 +16,19 @@ function Profile({ userData, followingCount }) {
       posts: [
         {
           id: 1,
+<<<<<<< HEAD
           image: "/assets/img/img17.jpg",
         },
         {
           id: 2,
           image: "/assets/img/img19.jpg",
+=======
+          image: "./assets/img/img17.jpg",
+        },
+        {
+          id: 2,
+          image: "./assets/img/img19.jpg",
+>>>>>>> main
         },
         {
           id: 3,

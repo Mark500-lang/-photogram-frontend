@@ -1,0 +1,35 @@
+body {
+    background-color: #fafafa;
+  }
+
+  #wrapper-signup {
+    height: 100vh;
+  }
+
+  .signup-container {
+    width: 400px;
+    margin: 0 auto;
+  }
+
+  .main-signup {
+    border: 1px solid #dbdbdb;
+    border-radius: 3px;
+    padding: 20px;
+  }
+
+  .sub-signup {
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .signup-image {
+    width: 100%;
+    text-align: center;
+  }
+
+  .signup-image img {
+    width: 80%;
+    max-width: 400px;
+    margin-top: 25vw;
+  }

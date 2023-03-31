@@ -8,10 +8,10 @@ function EditProfile({ userProfile, onSubmit }) {
       background_image: "",
       bio: "",
     });
-
+    const userId = 2;
     const handleSubmit = (e) => {
       e.preventDefault();
-      fetch("/user/:id", {
+      fetch(`/user/${userId}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

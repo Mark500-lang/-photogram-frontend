@@ -38,6 +38,7 @@ function App() {
     }
   };
   return (
+<<<<<<< HEAD
     <UserContext.Provider value={{ currentUser, setCurrentUser }}>
       <BrowserRouter>
         <Routes>
@@ -61,7 +62,25 @@ function App() {
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>
+=======
+    <BrowserRouter>
+      <Routes >
+            <Route index path='/' element={<LoginSignup/>}/>
+            <Route path="/home" element={<Header/>}>
+            <Route index element={<Feed posts={posts}/>}/>
+            <Route path='/home/search' element={<Search/>}/>
+            <Route path='/home/profile' element={<Profile/>}/>
+            <Route path="/home/profile/create-post" element={<CreatePost/>} />
+            </Route >
+      </Routes>
+    </BrowserRouter>
+>>>>>>> main
   );
 }
 
 export default App;
+<<<<<<< HEAD
+=======
+
+/*<Route path="/home/profile/edit-profile" element={<EditProfile/>} />*/
+>>>>>>> main

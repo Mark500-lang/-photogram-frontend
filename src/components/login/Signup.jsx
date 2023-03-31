@@ -1,46 +1,73 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Signup.css";
 
-function Signup({setIsLoginPage}){
+function Signup({ setIsLoginPage }) {
+  const handleClick = (e) => {
+    e.preventDefault();
+    setIsLoginPage(true);
+  };
 
-  //to login page change
-    const handleClick =(e)=>{
-        e.preventDefault()
-        setIsLoginPage(true)
-    }
-    return(
-        <div id="wrapper-signup">
-            <div className="signup-container">
-                <p>Sign up to see photos and videos of your friends</p>
-                <form className="main-signup" >
-                        <div>
-                            <input type="text" placeholder="Email" className="form-control"/>
-                        </div>
-                        <div>
-                            <input type="text" placeholder="Full Name" className="form-control"/>
-                        </div>
-                        <div>
-                            <input type="text" placeholder="Username" className="form-control"/>
-                        </div>
-                        <div>
-                            <input type="password" placeholder="Password" className="form-control"/>
-                        </div>
-                        <Link to='/home'>
-                            <button type="submit" className="btn" >Signup</button>
-                        </Link>
-                </form>
-                <div className="sub-signup">
-                        Have an account? <a href="" onClick={handleClick} >Log in</a>
-                </div>
+  return (
+    <div className="container-fluid" id="wrapper-signup">
+      <div className="row">
+        <div className="col-lg-6 d-flex align-items-center justify-content-center">
+          <div className="signup-container">
+            <h1 className="mb-4">Instagram</h1>
+            <p>Sign up to see photos and videos of your friends</p>
+            <form className="main-signup">
+              <div className="mb-3">
+                <input
+                  type="text"
+                  placeholder="Email"
+                  className="form-control"
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  className="form-control"
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  type="text"
+                  placeholder="Username"
+                  className="form-control"
+                />
+              </div>
+              <div className="mb-3">
+                <input
+                  type="password"
+                  placeholder="Password"
+                  className="form-control"
+                />
+              </div>
+              <button type="submit" className="btn btn-primary">
+                Signup
+              </button>
+            </form>
+            <div className="sub-signup">
+              Have an account?{" "}
+              <a href="/login" onClick={handleClick}>
+                Log in
+              </a>
             </div>
-            <div className="signup-image">
-                <img src="./images/signup.svg" alt="dignup image"/>
-            </div>
+          </div>
         </div>
-    )
+        <div className="col-lg-6 d-flex align-items-center justify-content-center">
+          <div className="signup-image">
+            <img src="./images/signup.svg" alt="signupimage" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Signup;
+
 /*
 onSubmit={handleSubmit}
 const initialState = {

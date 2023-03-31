@@ -1,6 +1,6 @@
 #body {
     margin: 0px;
-    background-color:#12171D;
+    background-color:#d7d7d7;
     text-align: center;
     }
     #wrapper{
@@ -10,7 +10,7 @@
      background-color: #5D95CA;
      height: 100vw;
      background-size: cover;
-    } 
+    }
     .login-image{
      width: 10%;
      margin-left: 5vw;
@@ -40,7 +40,7 @@
      width: 15vw;
      background-color: #5D95CA;
     }
-   
+
     .sub-content{
      padding: 2vw;
      margin-top: 8px;
@@ -67,7 +67,7 @@
      margin-left: 37vw;
      background-color: #1A2432;
     }
-   
+
     .signup-container p{
      margin-bottom: 0;
      background-color: #fff;
@@ -93,7 +93,7 @@
      margin-top: 8px;
      background-color: #fff;
     }
-   
+
    .navbar {
      display: flex;
      justify-content: space-between;
@@ -104,11 +104,11 @@
      background-color: #1A2432;
      color: #fff;
    }
-   
+
    .navbar__logo img {
      height: 40px;
    }
-   
+
    .navbar__list {
      display: flex;
      justify-content: flex-end;
@@ -116,22 +116,22 @@
      margin: 0;
      padding-right: 8vw;
    }
-   
+
    .navbar__list li {
      margin-left: 20px;
    }
-   
+
    .navbar__list li:first-child {
      margin-left: 0;
    }
-   
+
    .navbar__list a {
      color: #fff;
      text-decoration: none;
      font-size: 16px;
      font-weight: bold;
    }
-   
+
    .profile{
      display: flex;
     background-color: rgba(0, 0, 0, 0.856);
@@ -145,7 +145,7 @@
      width: 150px;
      height: 150px;
      border-radius: 50%;
-     
+
    }
    .profile-pic{
      margin-top: 3vw;
@@ -185,7 +185,7 @@
      font-weight: bold;
      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
    }
-   
+
    .posts_container{
      display: flex;
      flex-direction: row;
@@ -199,7 +199,7 @@
    .posts_container .card img{
      width: 200px;
      height: 400px;
-     
+
    }
    .create-post-form{
      display: inline-block;

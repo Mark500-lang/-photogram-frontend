@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Profile from './Profile';
+import Profile from '../Profile';
 
 function Login({setIsLoginPage, isLoginPage}){
 
@@ -22,7 +22,7 @@ function Login({setIsLoginPage, isLoginPage}){
         })
         .then((response)=> response.json())
         .then(data=> {
-            setUserData(data),
+            setUserData(data);
             <Profile userData={userData}/>
         })
     };
@@ -47,7 +47,7 @@ function Login({setIsLoginPage, isLoginPage}){
             <div className="login-container">
                 <img src="./images/photogram_logo4.svg"></img>
                 <div className="main-content">
-                    
+
                     <form className="l-part" onSubmit={handleSubmit}>
                         <div>
                             <input name='username' type="text" placeholder="Username" value={formData.username} onChange={handleOnChange} className="form-control" />

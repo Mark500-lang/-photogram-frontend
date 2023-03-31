@@ -36,7 +36,6 @@ function App() {
             <Route path='/home/search' element={<Search/>}/>
             <Route path='/home/profile' element={<Profile/>}/>
             <Route path="/home/profile/create-post" element={<CreatePost/>} />
-            <Route path="/home/profile/edit-profile" element={<EditProfile/>} />
             </Route >
       </Routes>
     </BrowserRouter>
@@ -44,3 +43,5 @@ function App() {
 }
 
 export default App;
+
+/*<Route path="/home/profile/edit-profile" element={<EditProfile/>} />*/

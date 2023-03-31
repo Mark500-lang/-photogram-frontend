@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Profile from '../Profile';
 
-function Login({setIsLoginPage, isLoginPage}){
+function Login({isLoginPage, setIsLoginPage}){
 
     const [userData, setUserData] = useState();
 
     const [formData, setFormData]= useState({
         username: "",
-        password_digest: ""
+        password: ""
     });
 
     const handleSubmit = (e) => {
@@ -53,10 +53,11 @@ function Login({setIsLoginPage, isLoginPage}){
                             <input name='username' type="text" placeholder="Username" value={formData.username} onChange={handleOnChange} className="form-control" />
                         </div>
                         <div className="overlap-text">
-                            <input name='password_digest' type="password" placeholder="Password" value={formData.password_digest} onChange={handleOnChange} className="form-control" />
+                            <input name='password' type="password" placeholder="Password" value={formData.password} onChange={handleOnChange} className="form-control" />
                         </div>
+                        <button type="submit" className="btn">Login</button>
                         <Link to='/home'>
-                            <button type="button" className="btn">Login</button>
+                            
                         </Link>
                 </form>
             </div>
@@ -71,3 +72,4 @@ function Login({setIsLoginPage, isLoginPage}){
 }
 
 export default Login;
+

@@ -16,11 +16,11 @@ function Profile({userData}) {
       posts: [
         {
           id: 1,
-          image: "assets/img/img17.jpg",
+          image: "./assets/img/img17.jpg",
         },
         {
           id: 2,
-          image: "assets/img/img19.jpg",
+          image: "./assets/img/img19.jpg",
         },
         {
           id: 3,

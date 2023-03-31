@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./Signup.css";
 
-function Signup({setIsLoginPage}){
+function Signup({ setIsLoginPage }) {
+  const handleClick = (e) => {
+    e.preventDefault();
+    setIsLoginPage(true);
+  };
 
 const initialState = {
   name: "",
@@ -68,11 +73,16 @@ function handleSubmit(e) {
             <div className="signup-image">
                 <img src="./images/signup.svg" alt="dignup image"/>
             </div>
+          </div>
         </div>
-    )
+        <div className="col-lg-6 d-flex align-items-center justify-content-center">
+          <div className="signup-image">
+            <img src="./images/signup.svg" alt="signupimage" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Signup;
-/*
-
-*/

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Profile from '../Profile.jsx';
+import Profile from '../Profile';
 
 function Login({isLoginPage, setIsLoginPage}){
 
@@ -21,7 +21,10 @@ function Login({isLoginPage, setIsLoginPage}){
             body: JSON.stringify(formData),
         })
         .then((response)=> response.json())
-        .then(data=> console.log("tyrtyr"))
+        .then(data=> {
+            setUserData(data);
+            <Profile userData={userData}/>
+        })
     };
 
     const handleOnChange=(event)=>{
@@ -44,7 +47,7 @@ function Login({isLoginPage, setIsLoginPage}){
             <div className="login-container">
                 <img src="./images/photogram_logo4.svg"></img>
                 <div className="main-content">
-                    
+
                     <form className="l-part" onSubmit={handleSubmit}>
                         <div>
                             <input name='username' type="text" placeholder="Username" value={formData.username} onChange={handleOnChange} className="form-control" />
@@ -69,4 +72,4 @@ function Login({isLoginPage, setIsLoginPage}){
 }
 
 export default Login;
-/*<Profile userData={userData}/>*/
+

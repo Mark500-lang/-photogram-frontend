@@ -6,7 +6,7 @@ function CommentForm({ onCommentSubmit }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (commentText.trim() !== "") {
-      onCommentSubmit(commentText);
+      onCommentSubmit(e, commentText);
       setCommentText("");
     }
   };
@@ -23,7 +23,7 @@ function CommentForm({ onCommentSubmit }) {
         />
         <div className="input-group-append">
           <button type="submit" className="btn btn-primary">
-            Post
+            Save
           </button>
         </div>
       </div>

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Comment from "./Comment";
 import CommentForm from "./CommentForm";
 import "./Post.css";
+import UserContext from "./UserContext";
 
 function Post({ post }) {
-
+  const { currentUser } = useContext(UserContext);
   const [comments, setComments] = useState(post.comments);
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(post.likes?.count ?? 0);
@@ -22,7 +23,7 @@ function Post({ post }) {
       id: comments.length + 1,
       comment: commentText,
       user: {
-        username: "currentUser",
+        username: currentUser?.username || "You",
         //Replace "currentUser" with the username of the user posting the comment when integrating backend.
       },
     };
@@ -30,14 +31,10 @@ function Post({ post }) {
   };
   return (
     <div id="post" className="card mb-4">
-      {post &&(
+      {post && (
         <>
           <div className="card-header d-flex align-items-center">
-            <img
-              id="profile_post"
-              src={post.user.profile_pic}
-              alt="Profile"
-            />
+            <img id="profile_post" src={post.user.profile_pic} alt="Profile" />
             <span className="ms-3">{post.user.username}</span>
           </div>
           <img
@@ -47,9 +44,12 @@ function Post({ post }) {
             alt="Post"
           />
           <div className="card-body">
-            <button type="button"
-            className={`btn btn-light btn-sm mb-2 ${liked ? "text-danger" : ""}`}
-            onClick={handleLike}
+            <button
+              type="button"
+              className={`btn btn-light btn-sm mb-2 ${
+                liked ? "text-danger" : ""
+              }`}
+              onClick={handleLike}
             >
               <i className={`bi bi-heart${liked ? "-fill" : ""}`}></i>
               <span className="ms-3">{liked ? "Liked" : "Like"}</span>
@@ -60,8 +60,8 @@ function Post({ post }) {
             <div>
               {post.likes?.recentLiker?.username && (
                 <span>
-                  {post.likes.recentLiker.username} and {likeCount - 1}{" "}
-                  others liked this
+                  {post.likes.recentLiker.username} and {likeCount - 1} others
+                  liked this
                 </span>
               )}
             </div>

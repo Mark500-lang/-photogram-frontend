@@ -1,45 +1,42 @@
-import React, { useState, useEffect } from 'react';
-import Post from './Post';
-import SuggestedFollows from './SuggestedFollows';
+import React, { useState, useEffect } from "react";
+import Post from "./Post";
+import SuggestedFollows from "./SuggestedFollows";
 
 // Sample data for suggested users
-function Feed({posts}) {
-
-    const suggestedUsers = [
+function Feed({ posts, onFollow }) {
+  const suggestedUsers = [
     {
       id: 1,
-      username: 'myantidodesssss',
-      profile_picture: 'assets/img/img3.jpg',
+      username: "myantidodesssss",
+      profile_picture: "assets/img/img3.jpg",
     },
     {
       id: 2,
-      username: 'dennisthemenace',
-      profile_picture: 'assets/img/img4.jpg',
+      username: "dennisthemenace",
+      profile_picture: "assets/img/img4.jpg",
     },
     {
       id: 3,
-      username: 'mynamesjefffffffff',
-      profile_picture: 'assets/img/img5.jpg',
-    }
+      username: "mynamesjefffffffff",
+      profile_picture: "assets/img/img5.jpg",
+    },
   ];
 
-
-    return (
-      <div className="container">
-        <div className="row">
-          <div className="col-md-8">
-            {posts.map((post) => (
-              <Post key={post.id} post={post} />
-            ))}
-          </div>
-          <div className="col-md-4">
-            <SuggestedFollows users={suggestedUsers} />
-          </div>
+  return (
+    <div className="container">
+      <div className="row">
+        <div className="col-md-8">
+          {posts.map((post) => (
+            <Post key={post.id} post={post} />
+          ))}
+        </div>
+        <div className="col-md-4">
+          <SuggestedFollows users={suggestedUsers} onFollow={onFollow} />
         </div>
       </div>
-    );
-  }
-
+    </div>
+  );
+}
 
 /* function Feed() {
   const [posts, setPosts] = useState([]);

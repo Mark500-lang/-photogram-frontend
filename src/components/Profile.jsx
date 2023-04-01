@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import EditProfile from "./EditProfile";
 
-function Profile({userData}) {
+function Profile({ userData, followingCount }) {
   const mockposts = [
     {
       id: 1,
@@ -16,11 +16,19 @@ function Profile({userData}) {
       posts: [
         {
           id: 1,
+<<<<<<< HEAD
+          image: "/assets/img/img17.jpg",
+        },
+        {
+          id: 2,
+          image: "/assets/img/img19.jpg",
+=======
           image: "./assets/img/img17.jpg",
         },
         {
           id: 2,
           image: "./assets/img/img19.jpg",
+>>>>>>> main
         },
         {
           id: 3,
@@ -65,7 +73,7 @@ function Profile({userData}) {
               <p className="username">@{userProfile.username}</p>
               <ul className="posts-following">
                 <li>{userProfile.posts.length} Posts</li>
-                <li>213 following</li>
+                <li>{followingCount} following</li>
                 <li>514 followers</li>
               </ul>
               <p>{userProfile.bio}</p>
@@ -75,7 +83,11 @@ function Profile({userData}) {
         )}
       </div>
       <div className="add_button">
-        <Link style={{color: "white", padding: "10px"}} className="nav-link" to="/home/profile/create-post">
+        <Link
+          style={{ color: "white", padding: "10px" }}
+          className="nav-link"
+          to="/home/profile/create-post"
+        >
           <span className="material-symbols-outlined">add_circle</span>
         </Link>
       </div>

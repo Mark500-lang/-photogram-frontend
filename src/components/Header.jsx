@@ -7,7 +7,7 @@ function Header(){
         <>
         <nav className="navbar">
             <div className="navbar__logo">
-                <img src="./images/photogram_logo.svg" alt="logo"/>
+                <img src="/images/photogram_logo.svg" alt="logo"/>
             </div>
             <ul className="navbar__list">
                 <li>

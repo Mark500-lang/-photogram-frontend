@@ -14,7 +14,7 @@ function Post({ post }) {
 
 
   useEffect(() => {
-    fetch('http://localhost:3000/users')
+    fetch('/users')
       .then(response => response.json())
       .then(users => {
         setUserData(users.slice(0, 6)); // limit suggestions to first 6 users

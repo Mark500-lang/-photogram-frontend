@@ -9,20 +9,37 @@ import Feed from './components/Feed';
 import LoginSignup from './components/login/LoginSignup';
 
 
-
 function App() {
-  const [user, setUser] = useState(null);
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+  const [user, setUser] = useState({}); 
+   
+  
   useEffect(() => {
-    fetch("http://localhost:3000/logged_user", {
-      method: 'GET',
-      credentials: 'include'
-    }).then((response) => {
-      if (response.ok) {
-        response.json().then((userdata) => console.log(userdata));
-      }
-    });
-  }, []);
+    fetch("/logged_in", {
+      method: "GET",
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then(res => res.json())
+    .then(response => {
+      setCurrentUser(response)
+    })
+  }, [])
+  console.log(currentUser);
+ 
+
+  const handleLogin = (data) => {
+    setIsLoggedIn(true);
+    console(data.user);
+  }
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setUser({});
+  }
 
   return (
     <BrowserRouter>
@@ -31,7 +48,8 @@ function App() {
             <Route path="/home" element={<Header/>}>
             <Route path="/home/feed" element={<Feed/>}/>
             <Route path='/home/search' element={<Search/>}/>
-            <Route path='/home/profile' element={<Profile/>}/>
+            <Route path='/home/profile/edit-profile' element={currentUser ? <EditProfile currentUser={currentUser}/> : null}/>
+            <Route path='/home/profile' element={currentUser ? <Profile currentUser={currentUser}/> : null}/>
             <Route path="/home/profile/create-post" element={<CreatePost/>} />
             </Route >
       </Routes>

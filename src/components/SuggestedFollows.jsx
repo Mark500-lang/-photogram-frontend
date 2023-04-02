@@ -9,10 +9,11 @@ function SuggestedFollows({ users }) {
 
 
   useEffect(() => {
-    fetch('http://localhost:3000/users')
+    fetch('/users')
       .then(response => response.json())
       .then(users => {
         setUserData(users.slice(0, 6)); // limit suggestions to first 6 users
+        console.log(userData)
         setFollowStatus(
           users.reduce((acc, user) => {
             acc[user.id] = false;
@@ -23,13 +24,11 @@ function SuggestedFollows({ users }) {
   }, []);
 
   useEffect(() => {
-    const sessionId = sessionStorage.getItem('session_id');
-    fetch("http://localhost:3000/loggedin", {
+    fetch("/logged_in", {
       method: "GET",
       credentials: 'include',
       headers: {
         "Content-Type": "application/json",
-        "X-Session-ID": sessionId
       },
     })
     .then(res => res.json())
@@ -37,10 +36,13 @@ function SuggestedFollows({ users }) {
       setCurrentUser(response)
     })
   }, [])
-  
   console.log(currentUser);
 
 
+
+  //const currentUserArray = Object.entries(currentUser).map(([key, value]) => ({ [key]: value }));
+  //console.log(currentUserArray)
+  
 
   const toggleFollow = (userId) => {
     setFollowStatus((prevState) => ({
@@ -50,19 +52,21 @@ function SuggestedFollows({ users }) {
   };
 
   return (
-    <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
-
-    <div className="suggested-follows bg-dark text-white">
+    <div className="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+  <div className="suggested-follows bg-dark text-white">
     <div className="d-flex align-items-center mb-3">
-      {userData.map((user) => (
+      {currentUser && currentUser.map((user) => (
+      <div className="d-flex align-items-center">
 
-      <img
-        className="profile-picture rounded-circle me-3"
-        src={user.profile_pic}
-        alt={user.username}
-      />
-))}
+        <img
+          className="profile-picture rounded-circle me-3"
+          src={user.profile_pic}
+          alt={user.username}
+        />
+        <p>{user.username}</p>
+      </div>
 
+      ))}
     </div>
     <br/>
 

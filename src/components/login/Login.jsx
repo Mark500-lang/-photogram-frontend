@@ -10,8 +10,7 @@ function Login({isLoginPage, setIsLoginPage}){
     const [error, setError] = useState('');
     //const [loggedIn, setLoggedIn] = useState(false);
 
-
-
+    
     const [formData, setFormData]= useState({
         username: "",
         password: ""
@@ -21,7 +20,7 @@ function Login({isLoginPage, setIsLoginPage}){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://localhost:3000/login', {
+        fetch('/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

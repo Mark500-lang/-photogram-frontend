@@ -10,6 +10,18 @@ function Search() {
   const [showModal, setShowModal] = useState(false);
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
+
+  const handleSearch = async () => {
+    if (query) {
+      const response = await fetch(`/users/search?query=${query}`);
+      const data = await response.json();
+      setResults(data);
+    } else {
+      setResults([]);
+    }
+  };
 
   const handleImageClick = (post) => {
     setSelectedPost(post);
@@ -35,7 +47,6 @@ function Search() {
     }
   }, [selectedPost]);
 
-
   return (
     <>
       <div className="search-container" style={{ width: "400px" }}>
@@ -44,11 +55,22 @@ function Search() {
         </span>
         <input
           className="search-input"
-          type="search"
+          type="text"
           placeholder="Search"
           aria-label="Search"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
         />
+        <button onClick={handleSearch}>Search</button>
+        {results.map((user) => (
+        <div key={user.id}>
+          <img src={user.profile_pic} alt="prifile picture" ></img>
+          <p>{user.name}</p>
+          <p>{user.username}</p>
+          
       </div>
+      ))}
+    </div>
       <div className="feed">
         {mockData.map((allPosts) => (
           <img
@@ -109,6 +131,7 @@ function Search() {
       )}
     </>
   );
+  
 }
 
 export default Search;

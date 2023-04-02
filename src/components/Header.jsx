@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { FaInstagram } from 'react-icons/fa';
 import { NavLink } from "react-router-dom";
@@ -7,13 +7,16 @@ import { Outlet } from 'react-router-dom';
 function Header() {
   const navigate = useNavigate();
   const [loggedIn, setLoggedIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+
+  
 
   const handleLogin = () => {
     setLoggedIn(true);
   };
 
   function handleLogout() {
-    fetch("http://localhost:3000/logout/", {
+    fetch("/logout/", {
       method: 'DELETE'
     })
       .then(response => {
@@ -34,6 +37,21 @@ function Header() {
         // handle the error case here
       });
   }
+
+  useEffect(() => {
+    fetch("/logged_in", {
+      method: "GET",
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then(res => res.json())
+    .then(response => {
+      setCurrentUser(response)
+    })
+  }, [])
+  console.log(currentUser);
   
   return (
     <>
@@ -48,7 +66,23 @@ function Header() {
           </li>
           <li>
             <NavLink className="nav-link" to='/home/profile'>
-              <span className="material-symbols-outlined">radio_button_unchecked</span>
+              <span>  <div className="d-flex align-items-center mb-3">
+      {currentUser && currentUser.map((user) => (
+      <div className="d-flex align-items-center">
+
+        <img style={{
+          width: "40px",
+          height: "40px",
+        }}
+          className="profile-picture rounded-circle me-3"
+          src={user.profile_pic}
+          alt={user.username}
+        />
+      </div>
+
+      ))}
+    </div></span>
+              
             </NavLink>
             
           </li>

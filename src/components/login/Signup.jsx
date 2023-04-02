@@ -28,7 +28,7 @@ const [formData, setFormData] = useState(initialState);
 
 function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://localhost:3000/signup", {
+    fetch("/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

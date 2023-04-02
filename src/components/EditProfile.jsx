@@ -1,25 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-function EditProfile({ userProfile, onSubmit }) {
-  function EditProfile() {
-    const [formData, setFormData] = useState({
-      name: "",
-      profile_pic: "",
-      background_image: "",
-      bio: "",
-    });
-    const userId = 2;
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      fetch(`/user/${userId}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
+function EditProfile({ userProfile, onSubmit, currentUser }) {
+
+  const [userId, setUserId]= useState([]);
+
+  useEffect(() => {
+    const ids = currentUser.map(user => user.id);
+    setUserId(ids);
+  }, [currentUser]);
+  
+  console.log(userId);
+
+
+  const [formData, setFormData] = useState({
+    name: "",
+    profile_pic: "",
+    background_image: "",
+    bio: "",
+  });
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch(`/users/${userId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
         body: JSON.stringify(formData),
       })
-        .then((response) => response.json())
-        .then((data) => console.log(data));
+      .then((response) => response.json())
+      .then((data) => console.log(data));
     };
 
     const handleOnChange = (event) => {
@@ -78,13 +88,13 @@ function EditProfile({ userProfile, onSubmit }) {
               className="form-control"
             ></input>
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary" onClick={handleSubmit} >
             Save Changes
           </button>
         </form>
       </div>
     );
-  }
+  
 }
 
 export default EditProfile;

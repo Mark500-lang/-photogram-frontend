@@ -1,31 +1,53 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import Profile from '../Profile';
+import { Link, useNavigate } from "react-router-dom";
+//import Profile from '../Profile';
+
 
 function Login({isLoginPage, setIsLoginPage}){
 
-    const [userData, setUserData] = useState();
+    const navigate = useNavigate();
+    const [user, setUser] = useState(null);
+    const [error, setError] = useState('');
+    //const [loggedIn, setLoggedIn] = useState(false);
+
+
 
     const [formData, setFormData]= useState({
         username: "",
         password: ""
     });
 
+    console.log(formData);
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch("/login" , {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
+        fetch('http://localhost:3000/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
         })
-        .then((response)=> response.json())
-        .then(data=> {
-            setUserData(data);
-            <Profile userData={userData}/>
-        })
-    };
+          .then(response => {
+            if (response.ok) {
+                response.json().then((user) => console.log(user));
+
+            //navigate('home/feed');
+            } else {
+              setError('Invalid username or password');
+            }
+            if(user) {
+                navigate('home/feed');
+            } else { 
+                navigate('/')
+            }
+         } ) 
+          .catch(error => {
+            console.error(error);
+            setError('Something went wrong. Please try again later.');
+          });
+      };
+      
 
     const handleOnChange=(event)=>{
         formData[event.target.name]=event.target.value
@@ -55,21 +77,17 @@ function Login({isLoginPage, setIsLoginPage}){
                         <div className="overlap-text">
                             <input name='password' type="password" placeholder="Password" value={formData.password} onChange={handleOnChange} className="form-control" />
                         </div>
-                        <button type="submit" className="btn">Login</button>
-                        <Link to='/home'>
-                            
-                        </Link>
-                </form>
-            </div>
-            <div className="sub-content">
-                <div className="s-part">
-                    Don't have an account?<a href="" onClick={handleClick} >Sign up</a>
+                        <button  type="submit" className="btn" onClick={handleSubmit} >Login</button>
+                    </form>
                 </div>
-            </div>
+                <div className="sub-content">
+                    <div className="s-part">
+                        Don't have an account?<a href="" onClick={handleClick} >Sign up</a>
+                    </div>
+                </div>
             </div>
         </div>
     )
 }
 
 export default Login;
-

@@ -11,28 +11,25 @@ import LoginSignup from './components/login/LoginSignup';
 
 
 function App() {
-  const [posts, setPosts] = useState([]);
-
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetchPosts();
+    fetch("http://localhost:3000/logged_user", {
+      method: 'GET',
+      credentials: 'include'
+    }).then((response) => {
+      if (response.ok) {
+        response.json().then((userdata) => console.log(userdata));
+      }
+    });
   }, []);
 
-  const fetchPosts = async () => {
-    try {
-      const response = await fetch("http://localhost:3000/posts");
-      const data = await response.json();
-      setPosts(data);
-    } catch (error) {
-      console.error("Error fetching posts:", error);
-    }
-  };
   return (
     <BrowserRouter>
       <Routes >
             <Route index path='/' element={<LoginSignup/>}/>
             <Route path="/home" element={<Header/>}>
-            <Route index element={<Feed posts={posts}/>}/>
+            <Route path="/home/feed" element={<Feed/>}/>
             <Route path='/home/search' element={<Search/>}/>
             <Route path='/home/profile' element={<Profile/>}/>
             <Route path="/home/profile/create-post" element={<CreatePost/>} />

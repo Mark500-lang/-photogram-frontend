@@ -11,13 +11,14 @@ const CurrentUserProvider = ({ children }) => {
     const fetchCurrentUser = async () => {
       try {
         // Fetch the current user from your API
-        const response = await fetch("http://localhost:3000/current_user");
+        const response = await fetch("http://localhost:3000/logged_user");
         const data = await response.json();
         setCurrentUser(data);
       } catch (error) {
         console.error("Error fetching current user:", error);
       }
     };
+    console.log(currentUser);
 
     fetchCurrentUser();
   }, []);

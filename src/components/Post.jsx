@@ -1,13 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Comment from "./Comment";
 import CommentForm from "./CommentForm";
 import "./Post.css";
+import SuggestedFollows from './SuggestedFollows';
+
 
 function Post({ post }) {
 
   const [comments, setComments] = useState(post.comments);
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(post.likes?.count ?? 0);
+  const [userData, setUserData] = useState([]);
+
+
+  useEffect(() => {
+    fetch('/users')
+      .then(response => response.json())
+      .then(users => {
+        setUserData(users.slice(0, 6)); // limit suggestions to first 6 users
+        
+      });
+  }, []);
 
   const handleLike = () => {
     setLiked(!liked);
@@ -29,6 +42,10 @@ function Post({ post }) {
     setComments([...comments, newComment]);
   };
   return (
+    
+
+ 
+    <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
     <div id="post" className="card mb-4">
       {post &&(
         <>
@@ -66,6 +83,7 @@ function Post({ post }) {
               )}
             </div>
             <div>
+              
               {comments.map((comment) => (
                 <Comment key={comment.id} comment={comment} />
               ))}
@@ -75,6 +93,8 @@ function Post({ post }) {
         </>
       )}
     </div>
+    </div>
+  
   );
 }
 

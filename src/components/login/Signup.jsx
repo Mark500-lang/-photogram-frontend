@@ -22,11 +22,13 @@ const [formData, setFormData] = useState(initialState);
       ...formData,
       [e.target.name]: e.target.value,
     });
+    console.log(FormData)
   }
+  console.log(formData);
 
 function handleSubmit(e) {
     e.preventDefault();
-    fetch("/users", {
+    fetch("/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,10 +39,10 @@ function handleSubmit(e) {
       .then((newUser) => setFormData(initialState));
   }
   //to login page change
-    const handleClick =(e)=>{
-        e.preventDefault()
-        setIsLoginPage(true)
-    }
+    // const handleClick =(e)=>{
+    //     e.preventDefault()
+    //     setIsLoginPage(true)
+    // }
     return(
         <div id="wrapper-signup">
             <div className="signup-container">
@@ -69,19 +71,19 @@ function handleSubmit(e) {
                 <div className="sub-signup">
                         Have an account? <a href="" onClick={handleClick} >Log in</a>
                 </div>
-            </div>
-            <div className="signup-image">
-                <img src="./images/signup.svg" alt="dignup image"/>
-            </div>
-          </div>
-        </div>
-        <div className="col-lg-6 d-flex align-items-center justify-content-center">
-          <div className="signup-image">
-            <img src="./images/signup.svg" alt="signupimage" />
-          </div>
-        </div>
-      </div>
-    </div>
+                </div> 
+                </div> 
+
+          //  </div>
+          //   <div className="signup-image">
+          //       <img src="./images/signup.svg" alt="dignup image"/>
+          //   </div>
+          // </div> 
+
+
+      
+    
+    
   );
 }
 

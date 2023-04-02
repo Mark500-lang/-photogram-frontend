@@ -3,7 +3,7 @@ import Post from './Post';
 import SuggestedFollows from './SuggestedFollows';
 
 // Sample data for suggested users
-function Feed({posts}) {
+function Feed() {
 
     const suggestedUsers = [
     {
@@ -23,6 +23,23 @@ function Feed({posts}) {
     }
   ];
 
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  const fetchPosts = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/posts");
+      const data = await response.json();
+      setPosts(data);
+      //console.log(data);
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+    }
+  };
+
 
     return (
       <div className="container">
@@ -33,7 +50,7 @@ function Feed({posts}) {
             ))}
           </div>
           <div className="col-md-4">
-            <SuggestedFollows users={suggestedUsers} />
+           {<SuggestedFollows /> }
           </div>
         </div>
       </div>

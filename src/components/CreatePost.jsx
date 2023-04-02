@@ -9,7 +9,7 @@ function CreatePost(){
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch("/posts" , {
+        fetch("http://localhost:3000/posts" , {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -41,7 +41,7 @@ function CreatePost(){
                 
                 <input name="caption" placeholder="caption..." value={formData.caption} onChange={handleOnChange} className="form-control"></input>
             </div>
-            <button type="submit" className="btn btn-primary" >Post</button>
+            <button type="submit" className="btn btn-primary" onClick={handleSubmit} >Post</button>
         </form>
     )
 }

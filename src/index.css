@@ -1,6 +1,6 @@
 #body {
     margin: 0px;
-    background-color:#d7d7d7;
+    background-color:#12171D;
     text-align: center;
     }
     #wrapper{
@@ -28,6 +28,7 @@
      width:29vw;
     }
     .main-content{
+      text-align: center;
      padding: 3vw;
      background-color: #fff;
     }
@@ -39,6 +40,7 @@
      margin-top: 10px;
      width: 15vw;
      background-color: #5D95CA;
+     align-content: center;
     }
 
     .sub-content{
@@ -53,6 +55,7 @@
      background-color: #1A2432;
      height: 100vw;
      background-size: cover;
+     
     }
     .signup-image img{
      width: 50vw;
@@ -66,6 +69,7 @@
      margin-top: 3vw;
      margin-left: 37vw;
      background-color: #1A2432;
+     text-align: center;
     }
 
     .signup-container p{
@@ -210,6 +214,7 @@
      width: 50vw;
      height: fit-content;
      background-color: #fff;
+     text-align: center;
    }
    .create-post-form div{
      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -224,4 +229,12 @@
    .create-post-form button{
      margin-top: 15px;
      margin-bottom: 15px;
+   }
+   .edit-profile{
+      text-align: center;
+      width: 50vw;
+      margin-left: 26vw;
+   }
+   .edit-profile form div{
+      padding: 10px;
    }

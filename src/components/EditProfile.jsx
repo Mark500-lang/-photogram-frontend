@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function EditProfile({ userProfile, onSubmit, currentUser }) {
+function EditProfile({ currentUser }) {
 
   const [userId, setUserId]= useState([]);
 
@@ -28,8 +28,15 @@ function EditProfile({ userProfile, onSubmit, currentUser }) {
       },
         body: JSON.stringify(formData),
       })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then(response => {
+            if (response.ok) {
+                response.json().then((response) => console.log(response));
+                alert('Profile Edited successfully!');
+            //navigate('home/feed');
+            } else {
+              alert('Error editing profile');
+            }
+      })
     };
 
     const handleOnChange = (event) => {

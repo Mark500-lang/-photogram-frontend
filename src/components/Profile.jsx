@@ -12,26 +12,6 @@ function Profile({ currentUser }) {
   
   const [editing, setEditing] = useState(false);
 
-  // useEffect(() => {
-  //   fetch("/logged_in", {
-  //     method: "GET",
-  //     credentials: 'include',
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   })
-  //   .then(res => res.json())
-  //   .then(response => {
-  //     setCurrentUser(response)
-  //   })
-  // }, [])
-  // console.log(currentUser);
-  
-
-  // const handleEditSubmit = (updatedProfile) => {
-  //   setUserData(updatedProfile);
-  //   setEditing(false);
-  // };
 
 
 

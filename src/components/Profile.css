@@ -1,0 +1,75 @@
+.profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .profile-pic {
+    margin-right: 20px;
+  }
+  
+  .profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .follows {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .username {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .posts-following {
+    list-style-type: none;
+    display: flex;
+    margin-bottom: 10px;
+  }
+  
+  .posts-following li {
+    margin-right: 20px;
+    font-size: 0.8rem;
+  }
+  
+  .add_button {
+    margin: 20px 0;
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .feed {
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    background-color: #343a40;
+    border: 1px solid #343a40;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #23272b;
+    border-color: #1d2124;
+  }
+  

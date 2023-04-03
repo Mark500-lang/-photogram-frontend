@@ -101,6 +101,7 @@ function Header() {
           </li>
         </ul>
       </nav>
+      {'\n'}
       <Outlet />
     </>
   );

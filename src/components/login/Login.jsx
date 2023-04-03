@@ -49,33 +49,6 @@ function Login({isLoginPage, setIsLoginPage}){
       };
       
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         const response = await fetch('http://localhost:3000/login', {
-    //           method: 'POST',
-    //           headers: {
-    //             'Content-Type': 'application/json'
-    //           },
-    //           body: JSON.stringify(formData)
-    //         });
-
-            
-            
-      
-    //         // if (response.ok) {
-    //         //     navigate('home/feed');
-    //         // } else {
-    //         //     setError('Invalid username or password');
-    //         // }
-
-        
-    //       } catch (error) {
-    //         console.error(error);
-    //         setError('Something went wrong. Please try again later.');
-    //       }
-    // };
-
     const handleOnChange=(event)=>{
         formData[event.target.name]=event.target.value
         setFormData({

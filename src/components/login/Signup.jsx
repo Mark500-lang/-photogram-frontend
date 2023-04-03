@@ -35,6 +35,7 @@ function handleSubmit(e) {
       },
       body: JSON.stringify(formData),
     })
+
       .then(response => {
         if (response.ok) {
             response.json().then((newUser) => setFormData(initialState));
@@ -44,6 +45,7 @@ function handleSubmit(e) {
           alert('Sign-up not successful');
         }
       })
+
       .then((newUser) => setFormData(initialState));
 
   }

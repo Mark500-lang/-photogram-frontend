@@ -26,9 +26,10 @@ function Header() {
 
           setLoggedIn(false);
           navigate('/');
-
+          alert("Logged out successfully")
           // perform any necessary cleanup here
         } else {
+          alert("error logging out")
           // handle the error case here
         }
       })
@@ -55,13 +56,18 @@ function Header() {
   
   return (
     <>
-      
       <nav className="navbar">
       <div className="navbar__logo">
         <img src="../images/photogram_logo4.svg" alt="logo"/>
+
       </div>
         <ul className="navbar__list">
-          
+          <li>
+            <NavLink className="nav-link" to='/home/search'>
+              <span className="material-symbols-outlined">search</span>
+            </NavLink>
+          </li>
+
           <li>
             <NavLink className="nav-link" to='/home/feed'>
               <span className="material-symbols-outlined">home</span>
@@ -70,21 +76,20 @@ function Header() {
           <li>
             <NavLink className="nav-link" to='/home/profile'>
               <span>  <div className="d-flex align-items-center mb-3">
-      {currentUser && currentUser.map((user) => (
-      <div className="d-flex align-items-center">
+              {currentUser && currentUser.map((user) => (
+              <div className="d-flex align-items-center">
 
-        <img style={{
-          width: "40px",
-          height: "40px",
-        }}
-          className="profile-picture rounded-circle me-3"
-          src={user.profile_pic}
-          alt={user.username}
-        />
-      </div>
-
-      ))}
-    </div></span>
+              <img style={{
+                width: "40px",
+                height: "40px",
+              }}
+              className="profile-picture rounded-circle me-3"
+              src={user.profile_pic}
+              alt={user.username}
+            />
+          </div>
+          ))}
+        </div></span>
               
             </NavLink>
             
@@ -94,6 +99,7 @@ function Header() {
               <span className="material-symbols-outlined">search</span>
             </NavLink>
           </li> */}
+
           <li>
 
           <button onClick={handleLogout}>Logout</button>

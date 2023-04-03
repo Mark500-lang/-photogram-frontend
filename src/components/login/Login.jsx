@@ -27,13 +27,14 @@ function Login({isLoginPage, setIsLoginPage}){
           },
           body: JSON.stringify(formData)
         })
-          .then(response => {
+        .then(response => {
             if (response.ok) {
                 response.json().then((user) => setUser(user));
-
+                alert('Login successful!');
             //navigate('home/feed');
             } else {
               setError('Invalid username or password');
+              alert('Invalid username or password');
             }
             if(user) {
                 navigate('home/feed');

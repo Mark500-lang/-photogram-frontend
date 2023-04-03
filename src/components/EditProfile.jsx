@@ -28,9 +28,17 @@ function EditProfile({ userProfile, onSubmit, currentUser }) {
       },
         body: JSON.stringify(formData),
       })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-    };
+      .then(response => {
+        if (response.ok) {
+            response.json().then((response) => console.log(response));
+            alert('Profile Edited successfully!');
+        } else {
+          alert('Error editing profile');
+        }
+  })
+   .then((data) => console.log(data));
+
+  };    
 
     const handleOnChange = (event) => {
       setFormData({

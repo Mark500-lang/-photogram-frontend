@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./SuggestedFollows.css";
 
 function SuggestedFollows({ users }) {
+  
   const [followStatus, setFollowStatus] = useState(
     users.reduce((acc, user) => {
       acc[user.id] = false;

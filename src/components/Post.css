@@ -1,15 +1,119 @@
 #post {
-    max-width: 500px;
-    margin: 0 auto;
-  }
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+}
 
-  #profile_post {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-  }
+#post:hover {
+  transform: scale(1.02);
+}
 
-  #post_pic {
-    width: 100%;
-    height: auto;
-  }
+#profile_post {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+#post_pic {
+  width: 100%;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+}
+
+.card-header {
+  padding: 10px;
+  background-color: #fafafa;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.card-header img {
+  margin-right: 10px;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-text {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.btn-light {
+  color: #212529;
+  background-color: #fff;
+  border-color: #ccc;
+  font-size: 14px;
+  padding: 0.25rem 0.5rem;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+.btn-light:hover {
+  color: #fff;
+  background-color: #212529;
+}
+
+.bi-heart {
+  color: #212529;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.bi-heart-fill {
+  color: #dc3545;
+}
+
+.text-danger {
+  color: #dc3545;
+}
+
+.comment-section {
+  margin-top: 10px;
+}
+
+.suggested-follows {
+  margin-top: 20px;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 20px;
+}
+
+.suggested-follows h6 {
+  margin-bottom: 10px;
+}
+
+.suggested-follows .card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.suggested-follows .card:hover {
+  transform: scale(1.02);
+}
+
+.suggested-follows .card-img-top {
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.suggested-follows .card-body {
+  padding: 10px;
+}
+
+.suggested-follows .card-text {
+  font-size: 14px;
+}
+
+.suggested-follows .btn {
+  font-size: 14px;
+  padding: 0.25rem 0.5rem;
+  border-radius: 20px;
+}

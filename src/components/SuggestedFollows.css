@@ -1,7 +1,17 @@
+.d-flex.align-items-center {
+  background-color: white;
+  border-radius: 20px;
+  padding: 4x;
+}
+
+.d-flex.align-items-center p {
+  color: black;
+}
+
 .suggested-follows .profile-picture {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    border-radius: 80%;
   }
 
   .suggested-follows li {
@@ -9,10 +19,95 @@
   }
 
   .suggested-follows p {
-    font-size: 14px;
+    font-size: 17px;
     margin-bottom: 0;
   }
 
   .suggested-follows button {
-    font-size: 12px;
+    font-size: 15px;
   }
+  .suggested-follows li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .profile-picture {
+    margin-right: 2px;
+  }
+
+  .suggested-follows {
+    padding: 20px;
+  }
+  
+  .suggested-follows h5 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .suggested-follows li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .suggested-follows li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .suggested-follows p {
+    font-size: 1rem;
+    margin-bottom: 0;
+    color: #000;
+  }
+  
+  .suggested-follows button {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .suggested-follows button:focus {
+    outline: none;
+  }
+  
+  .suggested-follows button.follow {
+    color: #fff;
+    background-color: #007bff;
+  }
+  
+  .suggested-follows button.follow:hover {
+    background-color: #0069d9;
+  }
+  
+  .suggested-follows button.follow:focus {
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+  }
+  
+  .suggested-follows button.following {
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #007bff;
+  }
+  
+  .suggested-follows button.following:hover {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .suggested-follows button.following:focus {
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+  }
+  
+  

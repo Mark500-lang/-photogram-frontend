@@ -2,33 +2,41 @@ import React, { useState } from "react";
 
 function CreatePost(){
 
-    const [formData, setFormData]= useState({
+    const initialstate = {
         post_pic: "",
-        caption: ""
-    });
-
+        caption: ""};
+    const [formData, setFormData] = useState(initialstate);
+      
+    console.log(formData);
+      
     const handleSubmit = (e) => {
-        e.preventDefault();
-        fetch("http://localhost:3000/posts" , {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-        })
-        .then((response)=> response.json())
-        .then(data=> {
-            alert(data.notice);
-        })
-    };
+    e.preventDefault();
+    fetch("/posts", {
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json",
 
-    const handleOnChange=(event)=>{
-        formData[event.target.name]=event.target.value
-        setFormData({
-            ...formData,
-            [event.target.name]:event.target.value
-        })
-    }
+        },
+        body: JSON.stringify({
+        post_pic: formData.post_pic,
+        caption: formData.caption,
+        }),
+    })
+        .then((response) => response.json())
+        .then((data) => {
+        alert(data.notice);
+        });
+    };
+    
+    const handleOnChange = (event) => {
+        const { name, value } = event.target;
+        setFormData(prevState => ({
+          ...prevState,
+          post_pic: name === "post_pic" ? value : prevState.post_pic,
+          caption: name === "caption" ? value : prevState.caption
+        }));
+    };
+    
 
     return(
         <form className="create-post-form" onSubmit={handleSubmit}>

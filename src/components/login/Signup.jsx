@@ -35,17 +35,19 @@ function handleSubmit(e) {
       },
       body: JSON.stringify(formData),
     })
-    .then(response => {
-            if (response.ok) {
-                response.json().then((newUser) => setFormData(initialState));
-                alert('Sign-up successful!');
-            //navigate('home/feed');
-            } else {
-              alert('Sign-up not successful');
-            }
-          })
-      .then((r) => r.json())
+
+      .then(response => {
+        if (response.ok) {
+            response.json().then((newUser) => setFormData(initialState));
+            alert('Sign-up successful!');
+        //navigate('home/feed');
+        } else {
+          alert('Sign-up not successful');
+        }
+      })
+
       .then((newUser) => setFormData(initialState));
+
   }
   //to login page change
     // const handleClick =(e)=>{

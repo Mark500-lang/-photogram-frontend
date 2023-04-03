@@ -35,7 +35,7 @@ function Post({ post }) {
       id: comments.length + 1,
       comment: commentText,
       user: {
-        username: "currentUser",
+        username: "kevinone",
         //Replace "currentUser" with the username of the user posting the comment when integrating backend.
       },
     };

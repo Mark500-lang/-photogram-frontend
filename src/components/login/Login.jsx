@@ -27,7 +27,7 @@ function Login({isLoginPage, setIsLoginPage}){
           },
           body: JSON.stringify(formData)
         })
-          .then(response => {
+        .then(response => {
             if (response.ok) {
                 response.json().then((user) => setUser(user));
                 alert('Login successful!');

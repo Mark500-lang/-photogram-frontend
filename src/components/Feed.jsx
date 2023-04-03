@@ -31,7 +31,7 @@ function Feed() {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch("http://localhost:3000/posts");
+      const response = await fetch("/posts");
       const data = await response.json();
       setPosts(data);
       //console.log(data);

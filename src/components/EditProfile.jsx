@@ -29,15 +29,18 @@ function EditProfile({ currentUser }) {
         body: JSON.stringify(formData),
       })
       .then(response => {
-            if (response.ok) {
-                response.json().then((response) => console.log(response));
-                alert('Profile Edited successfully!');
-            //navigate('home/feed');
-            } else {
-              alert('Error editing profile');
-            }
-      })
-    };
+
+        if (response.ok) {
+            response.json().then((response) => console.log(response));
+            alert('Profile Edited successfully!');
+        } else {
+          alert('Error editing profile');
+        }
+  })
+   .then((data) => console.log(data));
+
+  };    
+
 
     const handleOnChange = (event) => {
       setFormData({

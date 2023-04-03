@@ -11,6 +11,10 @@ function Post({ post }) {
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(post.likes?.count ?? 0);
   const [userData, setUserData] = useState([]);
+  const [currentUser, setCurrentUser] = useState({});
+  const [userId, setUserId]= useState([]);
+
+  
 
 
   useEffect(() => {
@@ -22,6 +26,22 @@ function Post({ post }) {
       });
   }, []);
 
+  useEffect(() => {
+    fetch("/logged_in", {
+      method: "GET",
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then(res => res.json())
+    .then(response => {
+      setCurrentUser(response)
+    })
+  }, [])
+  console.log(currentUser);
+  
+
   const handleLike = () => {
     setLiked(!liked);
     if (liked) {
@@ -30,12 +50,17 @@ function Post({ post }) {
       setLikeCount(likeCount + 1);
     }
   };
+
+ 
+
+
+
   const handleCommentSubmit = (commentText) => {
     const newComment = {
       id: comments.length + 1,
       comment: commentText,
       user: {
-        username: "currentUser",
+        username: "kevinone",
         //Replace "currentUser" with the username of the user posting the comment when integrating backend.
       },
     };

@@ -57,6 +57,9 @@ function Header() {
     <>
       
       <nav className="navbar">
+      <div className="navbar__logo">
+        <img src="../images/photogram_logo4.svg" alt="logo"/>
+      </div>
         <ul className="navbar__list">
           
           <li>
@@ -86,11 +89,11 @@ function Header() {
             </NavLink>
             
           </li>
-          <li>
+          {/* <li>
             <NavLink className="nav-link" to='/home/search'>
               <span className="material-symbols-outlined">search</span>
             </NavLink>
-          </li>
+          </li> */}
           <li>
 
           <button onClick={handleLogout}>Logout</button>

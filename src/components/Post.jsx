@@ -4,7 +4,7 @@ import CommentForm from "./CommentForm";
 import "./Post.css";
 import SuggestedFollows from './SuggestedFollows';
 
-function Post({ post }) {
+function Post({ post, user }) {
 
   const [comments, setComments] = useState(post.comments);
   const [liked, setLiked] = useState(false);
@@ -33,7 +33,7 @@ function Post({ post }) {
       id: comments.length + 1,
       comment: commentText,
       user: {
-        username: "kevinone",
+        username: `${user}`,
         //Replace "currentUser" with the username of the user posting the comment when integrating backend.
       },
     };

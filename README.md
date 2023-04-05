@@ -23,6 +23,7 @@ To get started with the project, follow these steps:
 ## File Structure
 The file structure for the application is as follows:
 
+```
 ├── public/
 │   ├── index.html
 │   ├── assets/
@@ -37,6 +38,7 @@ The file structure for the application is as follows:
 │   ├──  index.css
 │   └── ...
 └── package.json
+```
 
 - public/ contains the index.html file and any other static assets that are served by the application.
 - src/ contains the source code for the application.

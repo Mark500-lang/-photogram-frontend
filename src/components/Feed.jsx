@@ -4,24 +4,24 @@ import SuggestedFollows from './SuggestedFollows';
 
 // Sample data for suggested users
 function Feed() {
+  const [currentUser, setCurrentUser] = useState([]);
 
-    const suggestedUsers = [
-    {
-      id: 1,
-      username: 'myantidodesssss',
-      profile_picture: 'assets/img/img3.jpg',
-    },
-    {
-      id: 2,
-      username: 'dennisthemenace',
-      profile_picture: 'assets/img/img4.jpg',
-    },
-    {
-      id: 3,
-      username: 'mynamesjefffffffff',
-      profile_picture: 'assets/img/img5.jpg',
-    }
-  ];
+  useEffect(() => {
+    fetch("/logged_in", {
+      method: "GET",
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+    .then(res => res.json())
+    .then(response => {
+      setCurrentUser(response)
+    })
+  }, [])
+
+  const user = currentUser.map((user) => user.username);
+  console.log(user);
 
   const [posts, setPosts] = useState([]);
 
@@ -46,7 +46,7 @@ function Feed() {
         <div className="row">
           <div className="col-md-8">
             {posts.map((post) => (
-              <Post key={post.id} post={post} />
+              <Post key={post.id} post={post} user={user}/>
             ))}
           </div>
           <div className="col-md-4">
@@ -56,6 +56,7 @@ function Feed() {
       </div>
     );
   }
+
 
 
 /* function Feed() {

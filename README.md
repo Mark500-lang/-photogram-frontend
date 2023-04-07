@@ -1,4 +1,4 @@
-# PHOTOGRAM - backend
+# PHOTOGRAM-frontend
 This repository contains the frontend code for photogram, an Instagram clone built with React. It is a web application that allows users to sign up, log in, post pictures, follow other users, and view a feed of pictures from those they follow.
 
 ## Technologies Used
